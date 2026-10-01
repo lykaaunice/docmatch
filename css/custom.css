@@ -1,0 +1,17 @@
+/* css/custom.css - Quick Fallback Styling */
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #f1f5f9;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #2563eb;
+  color: white;
+  padding: 1rem;
+}
+
+button {
+  cursor: pointer;
+}
