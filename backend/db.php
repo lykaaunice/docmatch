@@ -1,9 +1,24 @@
 <?php
+
 // Database connection and shared backend helpers.
-$host = '127.0.0.1';
-$db   = 'docmatch_db';
-$user = 'root';
-$pass = '';
+
+$hostName = strtolower(explode(':', $_SERVER['HTTP_HOST'] ?? 'localhost')[0]);
+
+if (in_array($hostName, ['localhost', '127.0.0.1'], true)) {
+    // Local XAMPP database
+    $host = '127.0.0.1';
+    $db   = 'docmatch_db';
+    $user = 'root';
+    $pass = '';
+} else {
+    // Live InfinityFree database
+    $config = require __DIR__ . '/db_config.php';
+
+    $host = $config['host'];
+    $db   = $config['db'];
+    $user = $config['user'];
+    $pass = $config['pass'];
+}
 
 date_default_timezone_set('Asia/Manila');
 
